@@ -376,10 +376,16 @@ h3 {
 
 .card .role {
   font-size: 1.25rem;
-  position: absolute;
+  position: static;
   right: 38px;
   top: 35px;
 }
+
+/* .card .role {
+  position: static;
+  display: block;
+  margin-bottom: 10px;
+} */
 
 .card li a {
   margin-right: 0;
