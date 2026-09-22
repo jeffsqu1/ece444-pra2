@@ -374,8 +374,7 @@ integrating data pipelines, backend services, and user interfaces.</li>
                     class="mdi-navigation-close right"></i></span>
                 <ul>
                   <li><b>Tools:</b> C++, GTK/Glade, Git</li>
-                  <li>Developed an interactive GIS application using OpenStreetMap data and C++ to compute efficient
-navigation routes</li>
+                  <li>Developed an interactive GIS application using OpenStreetMap data and C++ to compute efficient navigation routes</li>
                   <li>Implemented parallel Ant Colony Optimization, improving routing performance across large graph datasets.</li>
                   <li>Designed an interactive GTK interface enabling visualization and debugging of computed routes.</li>
 
@@ -395,6 +394,12 @@ navigation routes</li>
             </div>
           </div>
 
+          <div>
+            <div id="dynamic-projects" class="row"></div>
+            <div class="col s12 center-align">
+              <button id="load-more-btn" class="btn waves-effect waves-light teal">Load More</button>
+            </div>
+          </div>
           <!-- <div class="col s12 m6 l4">
             <div class="card medium">
               <div class="card-image waves-effect waves-block waves-light">
@@ -856,5 +861,72 @@ navigation routes</li>
     })
   </script>
 </body>
+
+<script>
+  // Project data array
+  const projects = [
+    {
+        title: "xFIP Prediction Model",
+        description: "Deep learning pipeline predicting season-level expected xFIP from pitch-tracking data.",
+        tools: "Python, PyTorch, NumPy, Pandas",
+        // github: "https://github.com/jeffsqu1"
+      },
+      {
+        title: "Email Humanizer",
+        description: "Full-stack app that rewrites AI-generated emails using local LLMs for a more natural tone.",
+        tools: "Python, LLMs, Ollama",
+        // github: "https://github.com/jeffsqu1"
+      },
+      {
+        title: "ROS Drone Sensor Driver",
+        description: "Led IMU, camera, and barometer driver tracks for a ROS/ROS 2 drone sensor stack.",
+        tools: "C++, ROS, ROS 2",
+        // github: "https://github.com/jeffsqu1"
+      }
+  ];
+
+  let projectsShown = 0;
+  const projectsPerClick = 2;
+  
+  function renderProjects(){
+    const container = document.getElementById("dynamic-projects");
+    // Add projectsPerClick (2) projects per click, if available
+    const nextBatch = projects.slice(projectsShown, projectsShown + projectsPerClick);
+
+    nextBatch.forEach(project => {
+      const col = document.createElement("div");
+      col.className = "col s12 m6 14";
+      col.innerHTML = `
+      <div class="card medium">
+            <div class="card-content">
+              <span class="card-title teal-text">${project.title}</span>
+              <p>${project.description}</p>
+              <p><b>Tools:</b> ${project.tools}</p>
+            </div>
+            <!-- <div class="card-action">
+              <a href="${project.github}" target="_blank">View on GitHub</a>
+            </div> -->
+          </div>
+        `;
+        container.appendChild(col);
+    });
+
+    projectsShown += nextBatch.length;
+
+    // Hide button if no more projects to show
+    const btn = document.getElementById("load-more-btn");
+      if (projectsShown >= projects.length) {
+        btn.disabled = true;
+        btn.style.display = "none";
+      }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+      renderProjects();
+
+      // Load More button
+      document.getElementById("load-more-btn").addEventListener("click", renderProjects);
+    });
+</script>
 
 </html>
