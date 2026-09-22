@@ -95,10 +95,10 @@
   -webkit-border-radius: 5px;
 }
 
-/* .readme:hover{
+.readme:hover{
   color: white;
-  background-color: #00796b;
-} */
+  background-color: #000d80;
+}
 
 .contactme {
   position: relative;
@@ -237,7 +237,7 @@ ul.side-nav li {
 
 ul.side-nav.fixed a {
   box-sizing: content-box;
-  color: rgb(16, 202, 56);
+  color: #000d80;
   display: block;
   line-height: 100%;
   padding: 10px 0 12px;
@@ -697,4 +697,100 @@ small {
   #intro.section {
     background-position-x: 30%;
   }
+}
+
+
+/* ---- Dark Mode ---- */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* override hardcoded background in main */
+body.dark-mode main {
+  background: #121212;
+}
+
+/* intro background */
+body.dark-mode #intro.section {
+  background: #1a1a2e;
+}
+
+body.dark-mode nav,
+body.dark-mode .page-footer {
+  background-color: #1e1e1e !important;
+}
+
+body.dark-mode .card,
+body.dark-mode .card-panel {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark-mode .card-reveal {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark-mode a:not(.readme):not(.contactme) {
+  color: #80cbc4;
+}
+
+body.dark-mode .readme {
+  background: #1a1a2e;
+  color: #e0e0e0;
+  border-color: #e0e0e0;
+}
+
+body.dark-mode .brown-text {
+  color: #d7a86e !important;
+}
+
+/* .teal-text and .teal uses !important too, at equal specificity */
+body.dark-mode .teal-text {
+  color: #0fc97b !important;
+}
+
+body.dark-mode .teal {
+  background-color: #263238 !important;
+}
+
+/* card list-item secondary text and card-action captions, hardcoded grey/dark in light mode */
+body.dark-mode .card ul li li,
+body.dark-mode .card-action span,
+body.dark-mode .grey-text {
+  color: #aaaaaa !important;
+}
+
+body.dark-mode .card li a {
+  color: #e0e0e0;
+}
+
+body.dark-mode ul.side-nav.fixed,
+body.dark-mode ul#slide-out {
+  background-color: #1a1a1a;
+}
+
+body.dark-mode ul.side-nav.fixed li.logo {
+  background-color: #1a1a1a;
+  border-bottom-color: #333;
+}
+
+body.dark-mode ul.table-of-contents li:not(.logo) a.active,
+body.dark-mode ul.table-of-contents li:not(.logo) a:hover {
+  background-color: #262626;
+}
+
+body.dark-mode ul.side-nav.fixed.table-of-contents li:not(.logo) a span, ul#slide-out li:not(.logo) a span {
+  color: #ffffff !important;
+}
+
+#dark-mode-toggle .material-icons {
+  position: relative;
+  top: -1px; /* adjust by 1px at a time until it lines up */
+}
+
+#dark-mode-toggle {
+  display: flex;
+  align-items: center;
 }
